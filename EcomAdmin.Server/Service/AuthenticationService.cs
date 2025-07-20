@@ -41,8 +41,7 @@ namespace EcomAdmin.Server.Service
             return new UserDto
             {
                 UserId = Convert.ToInt32(row["UserId"]),
-                Email = row["Email"].ToString(),
-                IsAdmin = Convert.ToBoolean(row["IsAdmin"])
+                Email = row["Email"].ToString()
             };
         }
 

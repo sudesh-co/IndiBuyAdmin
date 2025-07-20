@@ -1,3 +1,32 @@
+# IndiBuy Admin
+
+Welcome to the IndiBuy Admin project! Below are some screenshots of the project.
+
+## Project Screenshots
+
+### Screenshot 1
+![Screenshot 1](/projectImages/Screenshot 2025-07-20 192953.png)
+### Screenshot 2
+![Screenshot 2](/projectImages/Screenshot 2025-07-20 193036.png)
+### Screenshot 3
+![Screenshot 2](/projectImages/Screenshot 2025-07-20 193053.png)
+### Screenshot 4
+![Screenshot 2](/projectImages/Screenshot 2025-07-20 193119.png)
+
+![Screenshot 2](/projectImages/Screenshot 2025-07-20 193036.png)
+
+![Screenshot 2](/projectImages/Screenshot 2025-07-20 193036.png)
+
+
+![Screenshot 2](/projectImages/Screenshot 2025-07-20 193036.png)
+
+![Screenshot 2](/projectImages/Screenshot 2025-07-20 193036.png)
+## Features
+- User management
+- Product inventory
+- Order management
+
+
 # EcomadminClient
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
