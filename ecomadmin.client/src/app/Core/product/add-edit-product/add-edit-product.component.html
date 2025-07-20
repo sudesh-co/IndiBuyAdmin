@@ -1,0 +1,125 @@
+<div class="p-3 row align-items-center  ">
+  <div class="col text-center ">
+    <h5 class="m-0">{{title}}</h5>
+  </div>
+</div>
+<mat-dialog-content class="dialog-body">
+  <form [formGroup]="prodcutForm" *ngIf="prodcutForm" class="category-form bg-light rounded">
+    <input type="hidden" formControlName="ProductId">
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="prodcutForm"
+                          field="Name"
+                          Caption="Product Name"
+                          [IsReq]="true"
+                          [maxLen]="50"
+                          [block_space]="false"
+                          [customclassname]="'my-input-style'"
+                          [readonly]="false"
+                          [disabled]="false">
+        </app-custom-input>
+      </div>
+      <div class="col-md-6">
+
+        <app-custom-text-area [formGroup]="prodcutForm"
+                              field="Description"
+                              Caption="Description"
+                              [IsReq]="true"
+                              [IsPattern]="false"
+                              max_min_msg="Too long or short"
+                              [maxLen]="500"
+                              [readonly]="false"
+                              [disabled]="false"
+                              customclassname="your-custom-css">
+        </app-custom-text-area>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="prodcutForm"
+                          field="Price"
+                          Caption="Product Price"
+                          [IsReq]="true"
+                          [maxLen]="50"
+                          [block_space]="false"
+                          [customclassname]="'my-input-style'"
+                          [readonly]="false"
+                          [disabled]="false">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="prodcutForm"
+                          field="SKU"
+                          Caption="Product SKU"
+                          [IsReq]="true"
+                          [maxLen]="50"
+                          [block_space]="false"
+                          [customclassname]="'my-input-style'"
+                          [readonly]="false"
+                          [disabled]="false">
+        </app-custom-input>
+      </div>
+      <div class="col-6">
+        <app-custom-select [formGroup]="prodcutForm"
+                           field="CategoryId"
+                           Caption="Category"
+                           [IsReq]="true"
+                           [options]="Categories"
+                           display_property="display"
+                           value_property="value"
+                           [multi_select]="false"
+                           [show_caption]="true">
+        </app-custom-select>
+      </div>
+      <div class="col-6">
+        <app-custom-ckeck *ngIf="prodcutForm" [formGroup]="prodcutForm"
+                          field="isActive"
+                          label="Is Active"
+                          [useToggle]="true"
+                          [IsReq]="true">
+        </app-custom-ckeck>
+      </div>
+      <div class="col-6">
+          <app-custom-input [formGroup]="prodcutForm"
+                            field="Slug"
+                            Caption="Product Slug Name(must unique) "
+                            [IsReq]="true"
+                            [maxLen]="510"
+                            [block_space]="false"
+                            [customclassname]="'my-input-style'"
+                            [readonly]="false"
+                            [disabled]="false">
+          </app-custom-input>
+        <app-custom-file-uploader [formGroup]="prodcutForm"
+                                  field="productImages"
+                                  Caption="Product Images"
+                                  [multiple]="true"
+                                  [IsReq]="true"
+                                  [initialUrls]="imageUrls"
+                                  (deleteFile)="DynamicDeleteImages($event)"
+                                  (fileChange)="handleFiles($event)">
+        </app-custom-file-uploader>
+
+      </div>
+      <div class="col-6">
+        <app-custom-select *ngIf="prodcutForm" [formGroup]="prodcutForm"
+                           field="BrandId"
+                           Caption="Brand Name"
+                           [IsReq]="true"
+                           [options]="Brands"
+                           display_property="display"
+                           value_property="value"
+                           [multi_select]="false"
+                           [show_caption]="true">
+        </app-custom-select>
+      </div>
+    </div>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="secondary" (click)="closeDialog()">Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,22 @@
+
+<!-- Product Management Section -->
+<div class="mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h4 class="mb-0">Product Management</h4>
+    <button mat-raised-button color="primary" (click)="addEditCategory(null)">
+      <mat-icon>add</mat-icon> Add Product
+    </button>
+  </div>
+
+  <app-custom-grid [columns]="columns"
+                   [data]="categories"
+                   [showEdit]="true"
+                   [showDelete]="true"
+                   [showNote]="true"
+                   [noteMsg]="' Click on a row to check prodduct variants '"
+                   (edit)="addEditCategory($event)"
+                   (delete)="onDelete($event.ProductId)"
+                   (custom)="onClick($event.ProductId)"
+                   >
+  </app-custom-grid>
+</div>

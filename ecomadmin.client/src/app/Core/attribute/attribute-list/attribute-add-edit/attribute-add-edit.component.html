@@ -1,0 +1,39 @@
+
+<div class="p-2">
+  <div class="align-items-center  ">
+    <div class="col text-center ">
+      <h5 class="m-0">{{title}}</h5>
+    </div>
+
+  </div>
+  <mat-dialog-content class=" align-items-center">
+    <form [formGroup]="attrForm" class="mt-2">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <app-custom-input [formGroup]="attrForm"
+                            field="attr_name"
+                            Caption="Attribute Name"
+                            [IsReq]="true"
+                            [maxLen]="20"
+                            [block_space]="true"
+                            [customclassname]="'my-input-style'">
+          </app-custom-input>
+        </div>
+
+        <div class="col-md-6">
+          <app-custom-ckeck [formGroup]="attrForm"
+                            field="isActive"
+                            label="Is Active"
+                            [useToggle]="true"
+                            [IsReq]="true">
+          </app-custom-ckeck>
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>
+  <mat-dialog-actions align="end">
+    <button mat-stroked-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" (click)="registerAttributes()">Save Attribute</button>
+  </mat-dialog-actions>
+

@@ -1,0 +1,91 @@
+<!-- Header Row with Title Centered and Close Button Top-Right -->
+<div class="d-flex justify-content-between align-items-start pt-3">
+  <div class="flex-grow-1 text-center">
+    <h5 class="m-0">{{ title || 'Add Product Variant' }}</h5>
+  </div>
+</div>
+
+<mat-dialog-content class="dialog-body">
+  <form [formGroup]="variantForm" class="bg-light rounded">
+    <input type="hidden" formControlName="VariantId">
+    <input type="hidden" formControlName="ProductId">
+
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="variantForm"
+                          field="SKU"
+                          Caption="SKU"
+                          [IsReq]="true"
+                          [maxLen]="100"
+                          [block_space]="false"
+                          [customclassname]="'my-input-style'">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="variantForm"
+                          field="Price"
+                          Caption="Price"
+                          [IsReq]="true"
+                          [IsBlockAllChar]="true"
+                          [maxLen]="10"
+                          [block_space]="false"
+                          [customclassname]="'my-input-style'">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="variantForm"
+                          field="Stock"
+                          Caption="Stock Quantity"
+                          [IsReq]="true"
+                          [maxLen]="5"
+                          [IsBlockAllChar]="true"
+                          [block_space]="false"
+                          [customclassname]="'my-input-style'">
+        </app-custom-input>
+      </div>
+      <div class="col-md-6">
+        <app-custom-ckeck *ngIf="variantForm"
+                          [formGroup]="variantForm"
+                          field="IsActive"
+                          label="Is Active"
+                          [useToggle]="true"
+                          [IsReq]="true">
+        </app-custom-ckeck>
+      </div>
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="variantForm"
+                          field="Slug"
+                          Caption="Varient Slug(must unique)"
+                          [IsReq]="true"
+                          [maxLen]="510"
+                          [IsBlockAllChar]="true"
+                          [block_space]="false"
+                          [customclassname]="'my-input-style'">
+        </app-custom-input>
+      </div>
+
+
+
+      <div class="col-md-12">
+        <app-custom-file-uploader [formGroup]="variantForm"
+                                  field="variantImages"
+                                  Caption="Variant Images"
+                                  [multiple]="true"
+                                  [IsReq]="false"
+                                  [initialUrls]="imageUrls"
+                                  (deleteFile)="DynamicDeleteImages($event)"
+                                  (fileChange)="handleFiles($event)">
+        </app-custom-file-uploader>
+      </div>
+
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onSubmit()" >Save</button>
+  <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+</mat-dialog-actions>

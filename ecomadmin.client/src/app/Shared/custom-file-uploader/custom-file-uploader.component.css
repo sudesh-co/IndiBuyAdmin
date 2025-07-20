@@ -1,0 +1,17 @@
+.file-input {
+  width: 100%;
+  padding: 8px;
+}
+
+.file-list ul {
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.list-group-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  background-color: #fafafa;
+}

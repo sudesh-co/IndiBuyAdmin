@@ -1,0 +1,52 @@
+<div class="pt-2 text-center">
+  <h5>Add Category  </h5>
+</div>
+<mat-dialog-content class="dialog-body">
+  <form [formGroup]="categoryForm" class="category-form bg-light">
+    <input type="hidden" formControlName="categoryId">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="categoryForm"
+                          field="name"
+                          Caption="Category Name"
+                          [IsReq]="true"
+                          [maxLen]="20"
+                          [block_space]="true"
+                          [customclassname]="'my-input-style'"
+                          [readonly]="false"
+                          [disabled]="false">
+        </app-custom-input>
+
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-select [formGroup]="categoryForm"
+                           field="parentCategoryId"
+                           Caption="Parent Category"
+                           [IsReq]="true"
+                           [options]="parentCategories"
+                           display_property="display"
+                           value_property="value"
+                           [multi_select]="false"
+                           [show_caption]="true">
+        </app-custom-select>
+
+
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-6">
+        <app-custom-ckeck *ngIf="categoryForm" [formGroup]="categoryForm"
+                          field="isActive"
+                          label="Is Active"
+                          [useToggle]="true"
+                          [IsReq]="true">
+        </app-custom-ckeck>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="secondary" (click)="closeDialog()">Cancle</button>
+</mat-dialog-actions>

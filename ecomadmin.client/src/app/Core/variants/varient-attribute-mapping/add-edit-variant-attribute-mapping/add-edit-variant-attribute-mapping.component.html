@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-between align-items-start pt-3">
+  <div class="flex-grow-1 text-center">
+    <h5 class="m-0">{{ title || 'Map Attribute' }}</h5>
+  </div>
+</div>
+
+<mat-dialog-content class="dialog-body">
+  <form [formGroup]="variantAttrMappingForm" class="bg-light rounded">
+
+    <div class="row g-3">
+
+      <div class="col-md-6">
+          <app-custom-select [formGroup]="variantAttrMappingForm"
+                             field="AttributeId"
+                             Caption="Attribute"
+                             [IsReq]="true"
+                             [options]="Attributes"
+                             display_property="display"
+                             value_property="value"
+                             [multi_select]="false"
+                             [show_caption]="true">
+          </app-custom-select>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-select [formGroup]="variantAttrMappingForm"
+                           field="ValueId"
+                           Caption="Attribute Value"
+                           [IsReq]="true"
+                           [options]="AttributeValues"
+                           display_property="display"
+                           value_property="value"
+                           [multi_select]="false"
+                           [show_caption]="true">
+        </app-custom-select>
+      </div>
+
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+</mat-dialog-actions>

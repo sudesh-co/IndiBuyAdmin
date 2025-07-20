@@ -1,0 +1,26 @@
+<div [formGroup]="formGroup">
+  <label *ngIf="Caption">
+    <small>
+      {{ Caption }}
+    </small>
+    <span *ngIf="IsReq" style="color:red" title="required">*</span>
+  </label>
+
+  <mat-form-field appearance="outline" class="field-container w-100">
+    <input matInput
+           [matDatepicker]="picker"
+           [formControlName]="field"
+           [required]="IsReq"
+           [placeholder]="place || ('Select ' + Caption)"
+           [min]="min"
+           [max]="max"
+           (dateChange)="DateSelected($event)" />
+
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+
+    <mat-error *ngIf="IsReq && hasError(field, 'required')" style="font-size: 12px">
+      {{ Caption }} is required.
+    </mat-error>
+  </mat-form-field>
+</div>

@@ -1,0 +1,143 @@
+<div class="dashboard container mt-4">
+  <div class="row g-3">
+
+    <!-- Total Users -->
+    <div class="col-md-3">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-icon color="primary">group</mat-icon>
+          <mat-card-title>Total Users</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>1,204</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Monthly Revenue -->
+    <div class="col-md-3">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-icon color="accent">payments</mat-icon>
+          <mat-card-title>Revenue</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>$12,340</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Orders -->
+    <div class="col-md-3">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-icon color="warn">shopping_cart</mat-icon>
+          <mat-card-title>Orders</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>76</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Visitors -->
+    <div class="col-md-3">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-icon color="primary">public</mat-icon>
+          <mat-card-title>Visitors</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>5,672</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Traffic Overview Chart -->
+    <div class="col-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Site Traffic Overview</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="chart-placeholder">
+            <img src="https://static-us-east-1.similarcdn.com/build/20250713.master.4b8c0b3/dist/scripts/lite-app/assets/a3f66704080d20e1d6d3.png" style="max-height: 250px;width:auto;overflow:contain;" />
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Popular Products -->
+    <div class="col-md-6">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Top Selling Products</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Smartphone X100
+              <span class="badge bg-primary rounded-pill">320 sold</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Headphones A7
+              <span class="badge bg-success rounded-pill">185 sold</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Camera ProMax
+              <span class="badge bg-warning rounded-pill">142 sold</span>
+            </li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Conversion Rate -->
+    <div class="col-md-6">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Conversion Rate</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="text-center">
+          <mat-progress-spinner mode="determinate"
+                                [value]="64"
+                                diameter="100"
+                                color="accent">
+          </mat-progress-spinner>
+          <div class="mt-2">
+            <h4>64% Conversion</h4>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Activity Timeline -->
+    <div class="col-md-6">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Recent Activity</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <ul class="timeline">
+            <li><strong>User123</strong> placed an order <span class="text-muted">2 min ago</span></li>
+            <li><strong>Admin</strong> updated product info <span class="text-muted">10 min ago</span></li>
+            <li><strong>User456</strong> registered <span class="text-muted">1 hr ago</span></li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Admin Notes / To-do -->
+    <div class="col-md-6">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Admin Notes</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea matInput rows="5" placeholder="Write your admin notes here..." class="w-100"></textarea>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+</div>

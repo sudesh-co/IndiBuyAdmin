@@ -1,0 +1,27 @@
+.sidenav-container {
+  height: 100vh;
+}
+.custom-sidenav {
+  width: 200px;
+  background-color: #fff;
+}
+.sidenav-container {
+  height: 100vh;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* optional */
+}
+
+main {
+  min-height: calc(100vh - 64px - 48px); /* adjust if you have header/footer */
+}
+.main-content {
+  padding: 20px;
+  background-color: #fff;
+}

@@ -1,0 +1,55 @@
+<div class="p-4">
+  <div class="pt-2 pb-2 align-items-center  ">
+    <div class="col text-center ">
+      <h5 class="m-0">{{title}}</h5>
+    </div>
+  </div>
+  <mat-dialog-content class="p-2">
+    <!--<mat-dialog-title>Attribute Value</mat-dialog-title>-->
+
+    <form [formGroup]="attrFormValues" class="mt-2">
+      <div class="row mb-3">
+        <!-- Attribute Dropdown -->
+        <div class="col-md-6">
+          <app-custom-select [formGroup]="attrFormValues"
+                             field="attribute"
+                             Caption="Attribute"
+                             [IsReq]="true"
+                             [options]="Attributes"
+                             display_property="display"
+                             value_property="value">
+          </app-custom-select>
+        </div>
+
+        <!-- Attribute Value Input -->
+        <div class="col-md-6">
+          <app-custom-input [formGroup]="attrFormValues"
+                            field="attr_value"
+                            Caption="Attribute Value"
+                            [IsReq]="true"
+                            [maxLen]="20"
+                            [block_space]="true"
+                            [customclassname]="'my-input-style'">
+          </app-custom-input>
+        </div>
+
+        <!-- Is Active Checkbox -->
+        <div class="col-md-6">
+          <app-custom-ckeck [formGroup]="attrFormValues"
+                            field="isActive"
+                            label="Is Active"
+                            [useToggle]="true"
+                            [IsReq]="true">
+          </app-custom-ckeck>
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+
+  <!-- Dialog Footer Buttons -->
+  <mat-dialog-actions align="end" class="p-2">
+    <button mat-stroked-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" (click)="registerAttributesValues()">Save Attribute Value</button>
+  </mat-dialog-actions>
+
+</div>

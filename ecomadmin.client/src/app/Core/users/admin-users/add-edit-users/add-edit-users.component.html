@@ -1,0 +1,85 @@
+<div class="p-3 row align-items-center">
+  <div class="col text-center">
+    <h5 class="m-0">{{ title }}</h5>
+  </div>
+</div>
+
+<mat-dialog-content class="dialog-body">
+  <form [formGroup]="userForm" *ngIf="userForm" class="category-form ">
+
+    <input type="hidden" formControlName="UserId" />
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="userForm"
+                          field="FullName"
+                          Caption="Full Name"
+                          [IsReq]="true"
+                          [maxLen]="150"
+                          [block_space]="false">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="userForm"
+                          field="Email"
+                          Caption="Email"
+                          [IsReq]="true"
+                          [maxLen]="100"
+                          [block_space]="false">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="userForm"
+                          field="Phone"
+                          Caption="Phone"
+                          [IsReq]="false"
+                          [maxLen]="20"
+                          [block_space]="false">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="userForm"
+                          field="Username"
+                          Caption="Username"
+                          [IsReq]="true"
+                          [maxLen]="100"
+                          [block_space]="false">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="userForm"
+                          field="Role"
+                          Caption="Role"
+                          [IsReq]="true"
+                          [maxLen]="50">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-ckeck [formGroup]="userForm"
+                          field="IsAdmin"
+                          label="Is Admin"
+                          [useToggle]="true"
+                          [IsReq]="true">
+        </app-custom-ckeck>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-ckeck [formGroup]="userForm"
+                          field="IsActive"
+                          label="Is Active"
+                          [useToggle]="true"
+                          [IsReq]="true">
+        </app-custom-ckeck>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="accent" (click)="closeDialog()">Cancel</button>
+</mat-dialog-actions>

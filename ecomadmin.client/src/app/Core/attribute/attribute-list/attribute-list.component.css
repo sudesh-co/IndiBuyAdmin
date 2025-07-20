@@ -1,0 +1,19 @@
+/* styles.scss */
+.custom-dialog-container .mat-dialog-container {
+  width: 90vw !important;
+  height: auto !important;
+  max-width: none !important;
+  margin: 20px !important;
+  padding: 16px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+/* Desktop view override */
+@media (min-width: 1024px) {
+  .custom-dialog-container .mat-dialog-container {
+    width: 1000px !important; /* or 3000px if needed */
+    height: 400px !important;
+    margin: 100px auto !important;
+  }
+}

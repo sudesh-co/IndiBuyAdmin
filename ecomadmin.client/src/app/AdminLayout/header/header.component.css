@@ -1,0 +1,38 @@
+mat-toolbar {
+  background-color: white;
+  color: black; /* Changed to black for better contrast with white background */
+  height: auto;
+  position: sticky;
+  position: -webkit-sticky; /* For Safari */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+  mat-toolbar mat-icon {
+    color: inherit; /* Inherits the toolbar's text color (now black) */
+  }
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+/* Add this to ensure content doesn't hide behind the toolbar */
+.main-content {
+  position: relative;
+  padding-top: 20px; /* Adjust based on your toolbar height */
+}
+/* If the toggle button is part of the toolbar */
+mat-toolbar .sidebar-toggle {
+  margin-right: 16px; /* Pushes it left, away from the curve */
+  z-index: 1001; /* Ensures it stays above the sidebar */
+}
+
+/* If the button is inside the sidebar */
+.custom-sidenav .sidebar-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.2); /* Blends with sidebar */
+  border-radius: 50%;
+}

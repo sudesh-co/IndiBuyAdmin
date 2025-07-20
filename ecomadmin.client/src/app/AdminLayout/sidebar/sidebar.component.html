@@ -1,0 +1,38 @@
+<mat-nav-list class="custom-sidenav">
+  <ng-container *ngFor="let menu of menus">
+
+    <!-- Parent without children -->
+    <a mat-list-item
+       *ngIf="!menu.children"
+       [routerLink]="menu.route"
+       routerLinkActive="mat-list-item-active"
+       [ngClass]="menu.color">
+      <mat-icon class="me-2">{{ menu.icon }}</mat-icon>
+      {{ menu.label }}
+    </a>
+
+    <!-- Parent with children (toggles submenu) -->
+    <div *ngIf="menu.children">
+      <div class="parent-menu mat-list-item"
+           (click)="toggleMenu(menu.label)">
+        <mat-icon class="me-2">{{ menu.icon }}</mat-icon>
+        {{ menu.label }}
+        <mat-icon style="margin-left:auto;">
+          {{ isExpanded(menu.label) ? 'expand_less' : 'expand_more' }}
+        </mat-icon>
+      </div>
+
+      <!-- Submenu -->
+      <div *ngIf="isExpanded(menu.label)" class="child-menu-group">
+        <a mat-list-item
+           *ngFor="let child of menu.children"
+           [routerLink]="child.route"
+           routerLinkActive="mat-list-item-active">
+          <mat-icon class="me-2">{{ child.icon }}</mat-icon>
+          {{ child.label }}
+        </a>
+      </div>
+    </div>
+
+  </ng-container>
+</mat-nav-list>

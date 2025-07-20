@@ -1,0 +1,35 @@
+<div class="mb-3">
+  <label for="entityNameInput">Enter Table/View Name</label>
+  <input id="entityNameInput" type="text" class="form-control" [(ngModel)]="entityName" (ngModelChange)="onEntityNameChange()" placeholder="e.g. Categories" />
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Label</th>
+      <th>Type</th>
+      <th>Visible</th>
+    </tr>
+  </thead>
+  <tbody [formGroup]="formGroup">
+    <tr *ngFor="let group of configList.controls; let i=index" [formGroupName]="i">
+      <td>
+        <input type="text" formControlName="fieldName" class="form-control-plaintext" readonly />
+      </td>
+      <td>
+        <input type="text" formControlName="label" class="form-control" />
+      </td>
+      <td>
+        <select formControlName="fieldType" class="form-select">
+          <option *ngFor="let t of fieldTypes" [value]="t">{{ t }}</option>
+        </select>
+      </td>
+      <td>
+        <input type="checkbox" formControlName="isVisible" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" (click)="save()">Save</button>

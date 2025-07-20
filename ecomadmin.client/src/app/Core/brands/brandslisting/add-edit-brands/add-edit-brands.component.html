@@ -1,0 +1,49 @@
+<div class="p-3 row align-items-center  ">
+  <div class="col text-center ">
+    <h5 class="m-0">{{title || "Add New Brand"}}</h5>
+  </div>
+</div>
+<mat-dialog-content class="dialog-body">
+  <form [formGroup]="brandsForm" *ngIf="brandsForm" class="category-form bg-light rounded">
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="brandsForm"
+                          field="Name"
+                          Caption="Brand Name"
+                          [IsReq]="true"
+                          [maxLen]="50"
+                          [block_space]="false"
+                          [customclassname]="'my-input-style'"
+                          [readonly]="false"
+                          [disabled]="false">
+        </app-custom-input>
+      </div>
+      <div class="col-6">
+        <app-custom-ckeck *ngIf="brandsForm" [formGroup]="brandsForm"
+                          field="IsActive"
+                          label="Is Active"
+                          [useToggle]="true"
+                          [IsReq]="true">
+        </app-custom-ckeck>
+      </div>
+      <div class="col-6">
+        <app-custom-file-uploader [formGroup]="brandsForm"
+                                  field="BrandLogo"
+                                  Caption="Brand Logo"
+                                  [multiple]="true"
+                                  [IsReq]="true"
+                                  [initialUrls]="imageUrls"
+                                  (fileChange)="handleFiles($event)">
+        </app-custom-file-uploader>
+
+      </div>
+    </div>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="secondary" (click)="dialogRef.close()">Cancel</button>
+</mat-dialog-actions>

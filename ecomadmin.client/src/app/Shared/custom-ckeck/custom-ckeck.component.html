@@ -1,0 +1,36 @@
+<div class="row mb-3">
+  <label><small>{{ label }}</small><span *ngIf="IsReq" style="color:red">*</span></label>
+  <div class="col-12">
+    <!-- 🔹 Single checkbox or toggle -->
+    <ng-container *ngIf="!options.length">
+      <ng-container *ngIf="!useToggle; else toggleView">
+        <mat-checkbox [formControl]="control">
+          {{ label }}
+          <span *ngIf="IsReq" style="color:red">*</span>
+        </mat-checkbox>
+      </ng-container>
+
+      <ng-template #toggleView>
+        <mat-slide-toggle [checked]="formGroup.get(field)?.value"
+                          (change)="onToggleChange($event.checked)">
+        </mat-slide-toggle>
+      </ng-template>
+    </ng-container>
+
+    <!-- 🔹 Multi checkbox list -->
+    <ng-container *ngIf="options.length">
+      <label class="d-block">{{ label }}<span *ngIf="IsReq" style="color:red">*</span></label>
+      <div *ngFor="let opt of options">
+        <mat-checkbox [checked]="isOptionChecked(opt.value)"
+                      (change)="onMultiCheckChange(opt.value, $event.checked)">
+          {{ opt.label }}
+        </mat-checkbox>
+      </div>
+    </ng-container>
+
+    <mat-error *ngIf="IsReq && formGroup.get(field)?.touched && formGroup.get(field)?.hasError('required')">
+      {{ label }} is required.
+    </mat-error>
+
+  </div>
+</div>

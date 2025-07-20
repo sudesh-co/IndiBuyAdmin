@@ -1,0 +1,87 @@
+.custom-sidenav {
+  width: 198px;
+  height: 99vh;
+  padding: 12px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  background-color: #0d4efd;
+  color: #fff;
+  border-top-right-radius: 55px;
+  overflow-y: auto;
+  z-index: 900;
+}
+  .custom-sidenav .parent-menu {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    margin-bottom: 5px;
+    padding: 10px 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Standard nav item (boxy) */
+  .custom-sidenav mat-list-item {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+    /* Hover + active styles */
+    .custom-sidenav mat-list-item:hover {
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    }
+
+  .custom-sidenav .mat-list-item-active {
+    font-weight: 600;
+    border-left: 4px solid #ffffff;
+  }
+
+  /* Parent menu label (non-clickable) */
+  .custom-sidenav .parent-menu {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    margin-bottom: 5px;
+    padding: 10px 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: default;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .custom-sidenav .child-menu-group {
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    padding-left: 10px;
+    opacity: 1;
+    max-height: 1000px; /* will animate open */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+
+    /* Child items */
+    .custom-sidenav .child-menu-group mat-list-item {
+      font-size: 13px;
+      padding: 6px 12px;
+      box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+    }
+
+/* Icon spacing */
+.mat-icon.me-2 {
+  margin-right: 10px;
+  font-size: 20px;
+  color: white;
+}

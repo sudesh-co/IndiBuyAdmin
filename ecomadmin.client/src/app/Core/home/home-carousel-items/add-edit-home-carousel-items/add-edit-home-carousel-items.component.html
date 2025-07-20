@@ -1,0 +1,73 @@
+<div class="p-3 row align-items-center">
+  <div class="col text-center">
+    <h5 class="m-0">{{ title }}</h5>
+  </div>
+</div>
+
+<mat-dialog-content class="dialog-body">
+  <form [formGroup]="carouselForm" class="category-form">
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="carouselForm" field="Title" Caption="Title" [IsReq]="true" [maxLen]="255"></app-custom-input>
+      </div>
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="carouselForm" field="Subtitle" Caption="Subtitle" [maxLen]="255"></app-custom-input>
+      </div>
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="carouselForm" field="CtaText" Caption="CTA Text" [maxLen]="100"></app-custom-input>
+      </div>
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="carouselForm" field="CtaLink" Caption="CTA Link" [maxLen]="2083"></app-custom-input>
+      </div>
+
+      <div class="col-md-4">
+        <app-custom-select [formGroup]="carouselForm" field="CategoryId" Caption="Category" [options]="Categories" ></app-custom-select>
+      </div>
+      <div class="col-md-4">
+        <app-custom-select [formGroup]="carouselForm" field="SubCategoryId" Caption="Sub Category" [options]="SubCategories" ></app-custom-select>
+      </div>
+      <div class="col-md-4">
+        <app-custom-select [formGroup]="carouselForm" field="ProductId" Caption="Product" [options]="Products" ></app-custom-select>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-date-picker [formGroup]="carouselForm" field="StartDate" Caption="Start Date" [IsReq]="true"></app-custom-date-picker>
+      </div>
+      <div class="col-md-6">
+        <app-custom-date-picker [formGroup]="carouselForm" field="EndDate" Caption="End Date" [IsReq]="true"></app-custom-date-picker>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="carouselForm" field="Priority" Caption="Priority" [IsReq]="true" [maxLen]="3"></app-custom-input>
+      </div>
+      <div class="col-md-6">
+        <app-custom-select [formGroup]="carouselForm" field="Status" Caption="Status" [options]="[
+            { value: 'active', display: 'Active' },
+            { value: 'inactive', display: 'Inactive' },
+            { value: 'scheduled', display: 'Scheduled' },
+            { value: 'expired', display: 'Expired' }
+          ]" display_property="display" value_property="value">
+        </app-custom-select>
+      </div>
+
+      <div class="col-12">
+        <app-custom-file-uploader [formGroup]="carouselForm"
+                                  field="Image"
+                                  Caption="Carousel Image"
+                                  [multiple]="true"
+                                  [IsReq]="true"
+                                  [initialUrls]="imageUrls"
+                                  (deleteFile)="DynamicDeleteImages($event)"
+                                  (fileChange)="handleImageUpload($event)">
+        </app-custom-file-uploader>
+      </div>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+</mat-dialog-actions>

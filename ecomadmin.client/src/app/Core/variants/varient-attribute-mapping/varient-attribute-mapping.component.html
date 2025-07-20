@@ -1,0 +1,23 @@
+<!-- Product Management Section -->
+<div class="mt-4 p-3">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h5 class="mb-0">Variant Atttribute Management</h5>
+    <div class="d-flex gap-2">
+
+      <button mat-raised-button color="primary" (click)="addEditVarientAttr(null)">
+        <mat-icon>add</mat-icon> Map variant Attribute
+      </button>
+      <button mat-button color="warn" (click)="dialogRef.close()">
+        <mat-icon>close</mat-icon>Close
+      </button>
+    </div>
+  </div>
+    <app-custom-grid [columns]="columns"
+                     [data]="Attributes"
+                     [showEdit]="true"
+                     [showDelete]="true"
+                     (edit)="addEditVarientAttr($event)"
+                     (delete)="onDelete($event.VariantId)"
+                     (custom)="onClick($event.VariantId)">
+    </app-custom-grid>
+  </div>

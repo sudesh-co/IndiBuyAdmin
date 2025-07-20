@@ -1,0 +1,27 @@
+<div [formGroup]="formGroup">
+  <label *ngIf="show_caption">
+    <small>{{ Caption }}</small>
+    <span *ngIf="IsReq" style="color:red">*</span>
+  </label>
+
+  <!--<mat-icon fontIcon="cancel" style="font-size:22px;margin-top:0px;margin-bottom:0px;padding:0px;">cancel</mat-icon>-->
+
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-select #selectbox
+                [formControlName]="field"
+                [multiple]="multi_select"
+                [compareWith]="compareFn"
+                (selectionChange)="getSelOptionValue($event.value)"
+                [placeholder]="'Select ' + Caption">
+
+      <mat-option *ngFor="let option of options" [value]="option[value_property]">
+        {{ option[display_property] }}
+      </mat-option>
+
+    </mat-select>
+
+    <mat-error *ngIf="IsReq && has_error(field, 'required')">
+      {{ Caption }} is required.
+    </mat-error>
+  </mat-form-field>
+</div>

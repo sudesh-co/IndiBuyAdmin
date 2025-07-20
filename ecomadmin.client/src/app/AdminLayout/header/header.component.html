@@ -1,0 +1,43 @@
+<mat-toolbar class="sticky-toolbar primary " color="primary">
+
+  <!-- Left: Menu + Title -->
+  <button mat-icon-button (click)="onToggle()" aria-label="Toggle sidebar">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Spacer -->
+  <span class="flex-spacer"></span>
+
+  <!-- Right: Icons -->
+  <!--<div class="w-25 " style="height:10px">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+  </div>-->
+  <button mat-icon-button matTooltip="Dashboard">
+    <mat-icon>dashboard</mat-icon>
+  </button>
+
+  <button mat-icon-button matBadge="3" matBadgeColor="warn" matTooltip="Notifications">
+    <mat-icon>notifications</mat-icon>
+  </button>
+
+  <button mat-icon-button matTooltip="Settings">
+    <mat-icon>settings</mat-icon>
+  </button>
+
+  <button mat-icon-button matTooltip="My Account">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <button mat-icon-button matTooltip="Logout" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+
+</mat-toolbar>
+<!--<mat-chip-set style="display: flex; overflow-x: auto; white-space: nowrap;">
+  <mat-chip *ngFor="let comp of componentHistory" (click)="onChipClick(comp)">
+    {{ comp }}
+    <mat-icon matChipRemove style="font-size: 20px; cursor: pointer;">cancel</mat-icon>
+  </mat-chip>
+</mat-chip-set>-->
+
+

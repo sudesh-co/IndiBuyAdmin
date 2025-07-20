@@ -1,0 +1,87 @@
+<div class="m-0.5 text-center">
+  <h5>Add Field Configuration</h5>
+</div>
+
+<form [formGroup]="form" class="container mt-10 p-4 bg-light rounded">
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <app-custom-input [formGroup]="form"
+                        field="columnName"
+                        Caption="Column Name"
+                        [IsReq]="true"
+                        [maxLen]="100"
+                        [block_space]="true"
+                        [customclassname]="'my-input-style'"
+                        [readonly]="false"
+                        >
+      </app-custom-input>
+    </div>
+
+    <div class="col-md-6">
+      <app-custom-input [formGroup]="form"
+                        field="fieldName"
+                        Caption="Field Name"
+                        [IsReq]="true"
+                        [maxLen]="100"
+                        [block_space]="true">
+      </app-custom-input>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <app-custom-input [formGroup]="form"
+                        field="label"
+                        Caption="Label"
+                        [IsReq]="false"
+                        [maxLen]="100">
+      </app-custom-input>
+    </div>
+
+    <div class="col-md-6">
+      <app-custom-select [formGroup]="form"
+                         field="fieldType"
+                         Caption="Field Type"
+                         [IsReq]="true"
+                         [options]="[
+          { value: 'text', display: 'Text' },
+          { value: 'date', display: 'Date' },
+          { value: 'chip', display: 'Chip' }
+        ]"
+                         value_property="value"
+                         display_property="display"
+                         [multi_select]="false"
+                         [show_caption]="true">
+      </app-custom-select>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <app-custom-ckeck [formGroup]="form"
+                        field="isVisible"
+                        label="Is Visible"
+                        [useToggle]="true"
+                        [IsReq]="false">
+      </app-custom-ckeck>
+    </div>
+
+    <div class="col-md-6">
+      <app-custom-input [formGroup]="form"
+                        field="sortOrder"
+                        Caption="Sort Order"
+                        [IsReq]="false"
+                        >
+      </app-custom-input>
+    </div>
+  </div>
+
+  <div class="form-actions row">
+    <div class="col-12 d-flex justify-content-end gap-2">
+      <button class="btn btn-primary" (click)="save()">Save</button>
+      <button class="btn btn-secondary" (click)="dialogRef.close()">Cancel</button>
+    </div>
+  </div>
+
+</form>

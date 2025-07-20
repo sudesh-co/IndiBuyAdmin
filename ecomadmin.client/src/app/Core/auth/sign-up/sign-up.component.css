@@ -1,0 +1,55 @@
+.login-form-box {
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  z-index: 2;
+  /*background: blue;*/
+}
+
+.svg-box {
+  position: absolute;
+  bottom: -40px;
+  right: 70px;
+  width: 500px;
+  height: 400px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .login-form-box {
+    position: static;
+    width: 90%;
+    margin: 20px auto;
+    color: #fff;
+    background: blue;
+  }
+
+  .svg-box {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-box {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .svg-box {
+    display: none;
+  }
+}
+
+.input_style {
+  background-color: white !important;
+  border-radius: 4px;
+  color: #333;
+}

@@ -1,0 +1,11 @@
+/*:host {
+  display: block;
+  margin-bottom: 1rem;
+}
+*/
+.input_style {
+  background-color: white !important;
+  border-radius: 4px;
+  padding: 0.4rem 0.75rem;
+  color: #333;
+}
