@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
   constructor(private http: HttpClient) { }
-  private controller: string = "Common";
+    private controller: string = "Common";
   private Productcontroller: string = "Product";
   private ApiUrl: string = "https://localhost:7250/api/"
   public getCategoriesDDl(data: any): Observable<any> {

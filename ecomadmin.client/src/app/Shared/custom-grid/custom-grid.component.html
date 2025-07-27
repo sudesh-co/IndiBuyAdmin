@@ -1,64 +1,64 @@
 <!-- Table Container -->
-<div class="table-responsive">
-  <!-- Material Table -->
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z1 compact-mat-table" multiTemplateDataRows>
+<div class="compact-table-wrapper">
 
-    <!-- Dynamic Column Rendering -->
-    <ng-container *ngFor="let col of columns" [matColumnDef]="col.field">
-      <!-- Table Header -->
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ col.label }} <!-- Display Column Label -->
-      </th>
+  <!-- Sticky Search Bar -->
+<div class="sticky-search-bar">
+  <input
+    type="text"
+    class="search-box"
+    placeholder="Search records..."
+    (input)="applyFilter($event)" />
+</div>
 
-      <!-- Table Data Cell -->
-      <td mat-cell *matCellDef="let row" (click)="custom.emit(row)">
-        <ng-container [ngSwitch]="col.type">
-          <!-- Text Column Type -->
-          <span *ngSwitchCase="'text'" class="truncate-text">
-            {{ row[col.field] }} <!-- Display Text Data -->
-          </span>
 
-          <!-- Chip Column Type -->
-          <mat-chip *ngSwitchCase="'chip'" [color]="row[col.field] ? 'primary' : 'warn'">
-            {{ row[col.field] ? 'Active' : 'Inactive' }} <!-- Show Chip Value -->
-          </mat-chip>
+  <!-- Responsive Table -->
+  <div class="table-responsive">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z1 compact-mat-table" multiTemplateDataRows>
 
-          <!-- Icon Column Type -->
-          <mat-icon *ngSwitchCase="'icon'">{{ row[col.field] }}</mat-icon>
+      <!-- Dynamic Columns -->
+      <ng-container *ngFor="let col of columns" [matColumnDef]="col.field">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ col.label }}</th>
+        <td mat-cell *matCellDef="let row" (click)="custom.emit(row)">
+          <ng-container [ngSwitch]="col.type">
+            <span *ngSwitchCase="'text'" class="truncate-text">{{ row[col.field] }}</span>
+            <mat-chip *ngSwitchCase="'chip'" [color]="row[col.field] ? 'primary' : 'warn'">
+              {{ row[col.field] ? 'Active' : 'Inactive' }}
+            </mat-chip>
+            <mat-icon *ngSwitchCase="'icon'">{{ row[col.field] }}</mat-icon>
+            <img *ngSwitchCase="'image'" [src]="row[col.field]" alt="img" class="table-img"
+                 (error)="row[col.field] = '/image_not_found.png'" />
+          </ng-container>
+        </td>
+      </ng-container>
 
-          <!-- Image Column Type -->
-          <img *ngSwitchCase="'image'" [src]="row[col.field]" alt="img" class="table-img" (error)="row[col.field] = '/image_not_found.png'" />
-        </ng-container>
-      </td>
-    </ng-container>
-
-    <!-- Actions Column -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef class="sticky-col">Actions</th>
-      <td mat-cell *matCellDef="let row" class="sticky-col">
-        <!-- More Actions Button -->
-        <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Actions">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-          <!-- Edit Action -->
-          <button mat-menu-item *ngIf="showEdit" (click)="edit.emit(row)">
-            <mat-icon>edit</mat-icon><span>Edit</span>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="sticky-col">Actions</th>
+        <td mat-cell *matCellDef="let row" class="sticky-col">
+          <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Actions">
+            <mat-icon>more_vert</mat-icon>
           </button>
-          <!-- Delete Action -->
-          <button mat-menu-item *ngIf="showDelete" (click)="delete.emit(row)">
-            <mat-icon>delete</mat-icon><span>Delete</span>
-          </button>
-          <!-- Custom Action -->
-          <button mat-menu-item *ngIf="showCustom" (click)="custom.emit(row)">
-            <mat-icon>menu</mat-icon><span>{{ customButton }}</span>
-          </button>
-        </mat-menu>
-      </td>
-    </ng-container>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngIf="showEdit" (click)="edit.emit(row)">
+              <mat-icon>edit</mat-icon><span>Edit</span>
+            </button>
+            <button mat-menu-item *ngIf="showDelete" (click)="delete.emit(row)">
+              <mat-icon>delete</mat-icon><span>Delete</span>
+            </button>
+            <button mat-menu-item *ngIf="showCustom" (click)="custom.emit(row)">
+              <mat-icon>menu</mat-icon><span>{{ customButton }}</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
 
-    <!-- Table Row Definitions -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumnFields" class="header-row"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumnFields;" class="data-row"></tr>
-  </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumnFields" class="header-row"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnFields;" class="data-row"></tr>
+    </table>
+  </div>
+  <mat-paginator [length]="totalCount"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 50]"
+                 showFirstLastButtons>
+  </mat-paginator>
 </div>

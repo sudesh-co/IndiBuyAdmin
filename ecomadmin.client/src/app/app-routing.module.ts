@@ -51,6 +51,10 @@ const routes: Routes = [
         loadChildren: () => import('./Core/home/home.module').then(m => m.HomeModule)
       },
       {
+        path: 'discount',
+        loadChildren: () => import('./Core/discount/discount.module').then(m => m.DiscountModule)
+      },
+      {
         path: 'users',
         loadChildren: () => import('./Core/users/users.module').then(m => m.UsersModule)
       },

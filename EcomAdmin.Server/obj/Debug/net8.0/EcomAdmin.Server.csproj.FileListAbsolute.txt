@@ -52,3 +52,4 @@ C:\Users\ASUS\source\repos\EcomAdmin\EcomAdmin.Server\obj\Debug\net8.0\refint\Ec
 C:\Users\ASUS\source\repos\EcomAdmin\EcomAdmin.Server\obj\Debug\net8.0\EcomAdmin.Server.pdb
 C:\Users\ASUS\source\repos\EcomAdmin\EcomAdmin.Server\obj\Debug\net8.0\EcomAdmin.Server.genruntimeconfig.cache
 C:\Users\ASUS\source\repos\EcomAdmin\EcomAdmin.Server\obj\Debug\net8.0\ref\EcomAdmin.Server.dll
+C:\Users\ASUS\source\repos\EcomAdmin\EcomAdmin.Server\obj\Debug\net8.0\EcomAdmin.Server.sourcelink.json

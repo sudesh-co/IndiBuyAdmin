@@ -1,0 +1,20 @@
+<!-- Discount Management Section -->
+<div class="mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h4 class="mb-0">Discount Management</h4>
+    <button mat-raised-button color="primary" (click)="addEditDiscount(null)">
+      <mat-icon>add</mat-icon> Add Discount
+    </button>
+  </div>
+
+  <app-custom-grid [columns]="columns"
+                   [data]="discounts"
+                   [showEdit]="true"
+                   [showDelete]="true"
+                   [showNote]="true"
+                   [noteMsg]="'Click on a row to view or update discount details'"
+                   (edit)="addEditDiscount($event)"
+                   (delete)="onDelete($event.DiscountId)"
+                   >
+  </app-custom-grid>
+</div>

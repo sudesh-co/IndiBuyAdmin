@@ -1,0 +1,168 @@
+<!-- Discount Dialog Header -->
+<div class="p-3 row align-items-center">
+  <div class="col text-center">
+    <h5 class="m-0">{{ title }}</h5>
+  </div>
+</div>
+
+<!-- Discount Form -->
+<mat-dialog-content class="dialog-body">
+  <form [formGroup]="discountForm" *ngIf="discountForm" class="category-form bg-light rounded">
+
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="discountForm"
+                          field="Name"
+                          Caption="Discount Name"
+                          [IsReq]="true"
+                          [maxLen]="100"
+                          [block_space]="false">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-select [formGroup]="discountForm"
+                           field="Type"
+                           Caption="Discount Type"
+                           [IsReq]="true"
+                           [options]="discountTypes">
+        </app-custom-select>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="discountForm"
+                          field="Value"
+                          Caption="Discount Value"
+                          [IsReq]="true"
+                          [maxLen]="10"
+                          [block_space]="true">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="discountForm"
+                          field="MinOrderAmount"
+                          Caption="Minimum Order Amount"
+                          [IsReq]="false"
+                          [maxLen]="10">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="discountForm"
+                          field="MaxDiscountAmount"
+                          Caption="Maximum Discount Amount"
+                          [IsReq]="false"
+                          [maxLen]="10">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="discountForm"
+                          field="UsageLimit"
+                          Caption="Usage Limit"
+                          [IsReq]="false"
+                          [maxLen]="10">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-input [formGroup]="discountForm"
+                          field="PerUserLimit"
+                          Caption="Per User Limit"
+                          [maxLen]="10">
+        </app-custom-input>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-date-picker *ngIf="discountForm" [formGroup]="discountForm"
+                                field="StartDate"
+                                [IsReq]="true"
+                                Caption="Start Date">
+        </app-custom-date-picker>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-date-picker [formGroup]="discountForm"
+                                field="EndDate"
+                                [IsReq]="true"
+                                Caption="End Date">
+        </app-custom-date-picker>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-select [formGroup]="discountForm"
+                           field="ProductIds"
+                           [multi_select]="true"
+                           Caption="Applicable Products"
+                           [options]="Products">
+        </app-custom-select>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-select [formGroup]="discountForm"
+                           field="CategoryIds"
+                           [multi_select]="true"
+                           Caption="Applicable Categories"
+                           [options]="Categories">
+        </app-custom-select>
+      </div>
+
+      <div class="col-md-6">
+        <app-custom-select [formGroup]="discountForm"
+                           field="UserGroupIds"
+                           [multi_select]="true"
+                           Caption="Applicable User Groups"
+                           [IsReq]="false"
+                           [options]="UserGroups"
+                           display_property="Name"
+                           value_property="UserGroupId">
+        </app-custom-select>
+      </div>
+
+      <div class="col-md-12">
+        <div formArrayName="Conditions">
+          <div *ngFor="let condition of conditionControls; let i = index" class="row">
+            <div class="col-md-6">
+              <app-custom-input field="Type"
+                                Caption="Condition Type"
+                                [formGroup]="condition"
+                                [IsReq]="true">
+              </app-custom-input>
+            </div>
+            <div class="col-md-6">
+              <app-custom-input field="Value"
+                                Caption="Condition Value"
+                                [formGroup]="condition"
+                                [IsReq]="true">
+              </app-custom-input>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" mat-raised-button color="primary" (click)="addCondition()">
+          + Add Condition
+        </button>
+      </div>
+
+
+
+      <div class="col-md-6 mt-3">
+        <app-custom-ckeck [formGroup]="discountForm"
+                          field="IsActive"
+                          label="Is Active"
+                          [useToggle]="true"
+                          [IsReq]="true">
+        </app-custom-ckeck>
+      </div>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<!-- Actions -->
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+</mat-dialog-actions>

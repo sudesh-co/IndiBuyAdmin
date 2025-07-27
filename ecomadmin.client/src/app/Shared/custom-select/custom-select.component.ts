@@ -51,6 +51,7 @@ export class CustomSelectComponent implements OnInit, AfterViewInit {
     }
   }
 
+
   has_error(controlName: string, errorName: string): boolean {
     const control = this.formGroup.get(controlName);
     return !!(control && control.touched && control.hasError(errorName));

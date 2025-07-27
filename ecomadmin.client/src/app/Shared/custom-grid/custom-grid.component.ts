@@ -44,6 +44,7 @@ export class CustomGridComponent implements OnInit, OnChanges {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  totalCount = 0;
 
   constructor(private dialog: MatDialog) { }
 
@@ -81,14 +82,15 @@ export class CustomGridComponent implements OnInit, OnChanges {
     }
   }
 
-  applyFilter(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+applyFilter(event: Event) {
+  clearTimeout(this.filterTimeout);
+  const input = (event.target as HTMLInputElement).value;
+  this.filterTimeout = setTimeout(() => {
+    this.dataSource.filter = input.trim().toLowerCase();
+  }, 300);
+}
+private filterTimeout: any;
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
 
   openGridConfig(): void {
     const dialogRef = this.dialog.open(GridConfigFormComponent, {
